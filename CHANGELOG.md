@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/alice-sevin/release-please-test-test/compare/v1.2.0...v1.2.1) (2024-08-05)
+
+
+### Bug Fixes
+
+* try to set release please on release branches ([60e0ff2](https://github.com/alice-sevin/release-please-test-test/commit/60e0ff2b44d62d6826e9b40b61f1bca51cd8843e))
+
 ## [1.2.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.1.0...v1.2.0) (2024-08-05)
 
 
