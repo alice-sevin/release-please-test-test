@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.5.0...v1.6.0) (2024-08-05)
+
+
+### Features
+
+* test new action ([531bc9f](https://github.com/alice-sevin/release-please-test-test/commit/531bc9f4d39bd3e247e3b12a2d34f3ff39d19462))
+
 ## [1.5.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.4.1...v1.5.0) (2024-08-05)
 
 
