@@ -17,10 +17,10 @@ jobs:
       - if: ${{ github.ref_name == 'main' }}
         uses: google-github-actions/release-please-action@v4
         with:
-          config-file: .github/workflows/release-please-config.json
+          config-file: .github/workflows/config-main.json
           target-branch: main
       - if: ${{ startsWith(github.ref_name, 'release') }}
         uses: google-github-actions/release-please-action@v4
         with:
-          config-file: .github/workflows/release-please-config_release-branch.json
+          config-file: .github/workflows/config_release-branch.json
           target-branch: ${{ github.ref_name }}
