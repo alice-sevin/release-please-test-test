@@ -25,13 +25,12 @@ jobs:
         with:
           config-file: .github/workflows/config-release-branch.json
           target-branch: ${{ github.ref_name }}
-      - name: debug
-        run: echo "branch_name=release/${{ steps.main_release.outputs.tag_name }} release_created=${{ steps.main_release.outputs.release_created }} version=${{ steps.main_release.outputs.major }}.${{ steps.main_release.outputs.minor }}.${{ steps.main_release.outputs.patch }}"
       - name: creating major release branch
-        if: ${{ steps.main_release.outputs.release_created && steps.main_release.outputs.tag_name && steps.main_release.outputs.patch == 0 }}
+        if: ${{ steps.main_release.outputs.release_created && steps.main_release.outputs.patch == 0 }}
         run: |
           # Retrieve the branch name from the previous step's output
-          branch_name="release/${{ steps.main_release.outputs.tag_name }}"
-          tag_name="${{ steps.main_release.outputs.tag_name }}"
-          git checkout -b $branch_name $tag_name
+          branch_name="release/v${{ steps.main_release.outputs.major }}.${{ steps.main_release.outputs.minor }}"
+          echo "Create branch release/v${{ steps.main_release.outputs.major }}.${{ steps.main_release.outputs.minor }} based on tag: ${{ steps.main_release.outputs.tag_name }}"
+          git checkout -b $branch_name ${{ steps.main_release.outputs.tag_name }}
           git push --set-upstream origin $branch_name
+          echo "Branch pushed"
