@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/alice-sevin/release-please-test-test/compare/v1.3.0...v1.3.1) (2024-08-05)
+
+
+### Bug Fixes
+
+* try to fix branches ([8f08ad3](https://github.com/alice-sevin/release-please-test-test/commit/8f08ad3b05213b06ea235ce3e68bb1f38c361e6b))
+
 ## [1.3.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.2.0...v1.3.0) (2024-08-05)
 
 
