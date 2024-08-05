@@ -10,14 +10,13 @@ jobs:
     name: Create Branch
     runs-on: ubuntu-latest
     steps:
-      - name: Forge Branch Name
-        id: branch_name
-        run: echo "branch_name=$(echo $GITHUB_REF_NAME | cut -d "." -f 1,2)" >> $GITHUB_OUTPUT
+      - name: Checkout code
+        uses: actions/checkout@v4.1.4
+      - name: Get release version
+        id: get_release_version
+        run: echo "release_version=$(echo $GITHUB_REF_NAME | cut -d "." -f 1,2)" >> $GITHUB_OUTPUT
       - name: Create Branch
         id: create_branch
         uses: peterjgrainger/action-create-branch@v2.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: 'releases/${{ steps.branch_name.outputs.branch_name }}'
-          sha: '${{ github.sha }}'
+          branch: 'release/${{ steps.get_release_version.outputs.release_version }}'
