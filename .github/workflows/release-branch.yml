@@ -1,22 +1,16 @@
-on:
-  push:
+name: Tag
+on: 
+  create:
     tags:
-      - 'v[0-9]+.[0-9]+.0'
-
-name: Create Release Branch
-
+      - v*
 jobs:
-  build:
-    name: Create Branch
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4.1.4
-      - name: Get release version
-        id: get_release_version
-        run: echo "release_version=$(echo $GITHUB_REF_NAME | cut -d "." -f 1,2)" >> $GITHUB_OUTPUT
-      - name: Create Branch
-        id: create_branch
-        uses: peterjgrainger/action-create-branch@v2.2.0
-        with:
-          branch: 'release/${{ steps.get_release_version.outputs.release_version }}'
+    - name: checkout source code
+      uses: actions/checkout@v1
+    - name: Get Branch
+      run: |
+        branch=$(git branch -r --contains ${{ github.ref }} --format "%(refname:lstrip=3)")
+        echo ::set-env name=BRANCH::$branch
+    - run: echo ${{ env.BRANCH }}
