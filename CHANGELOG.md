@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.1.0...v1.2.0) (2024-08-05)
+
+
+### Features
+
+* try to improve branch action ([94279d9](https://github.com/alice-sevin/release-please-test-test/commit/94279d94d327f80655e9087b7b1ed55ce0025c59))
+
 ## [1.1.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.0.1...v1.1.0) (2024-08-05)
 
 
