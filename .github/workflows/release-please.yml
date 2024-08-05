@@ -25,6 +25,8 @@ jobs:
         with:
           config-file: .github/workflows/config-release-branch.json
           target-branch: ${{ github.ref_name }}
+      - name: debug
+        run: echo "branch_name=${{ steps.main_release.outputs.tag_name }}"
       - name: creating major release branch
         if: ${{ steps.main_release.outputs.releases_created && steps.main_release.outputs.tag_name && steps.main_release.outputs.minor == 0 }}
         run: |
