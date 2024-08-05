@@ -22,5 +22,5 @@ jobs:
       - if: ${{ startsWith(github.ref_name, 'release') }}
         uses: google-github-actions/release-please-action@v4
         with:
-          config-file: .github/workflows/config_release-branch.json
+          config-file: .github/workflows/config-release-branch.json
           target-branch: ${{ github.ref_name }}
