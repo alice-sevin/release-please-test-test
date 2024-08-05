@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.1](https://github.com/alice-sevin/release-please-test-test/compare/v1.11.0...v1.11.1) (2024-08-05)
+
+
+### Bug Fixes
+
+* test update patch ([df802e6](https://github.com/alice-sevin/release-please-test-test/commit/df802e61a2b8d588e34f23d4d6a270955c18f743))
+
 ## [1.11.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.10.0...v1.11.0) (2024-08-05)
 
 
