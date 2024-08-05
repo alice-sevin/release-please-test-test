@@ -27,7 +27,9 @@ jobs:
           target-branch: ${{ github.ref_name }}
       - name: creating major release branch
         if: ${{ steps.main_release.outputs.releases_created && steps.main_release.outputs.minor == 0 }}
-        uses: satya-500/create-branch@v1.0
-        with:
-          branch: release/${{ steps.main_release.outputs.tag_name }}
-          tag: ${{ steps.main_release.outputs.tag_name }}
+        run: |
+          # Retrieve the branch name from the previous step's output
+          branch_name=release/${{ steps.main_release.outputs.tag_name }}
+          tag_name=${{ steps.main_release.outputs.tag_name }}
+          git checkout -b $branch_name $tag_name
+          git push --set-upstream origin $branch_name
