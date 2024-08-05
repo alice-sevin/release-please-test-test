@@ -29,8 +29,6 @@ jobs:
       - name: creating major release branch
         if: ${{ steps.release.outputs.releases_created && github.ref_name == 'main' && steps.release.outputs.minor == 0 }}
         uses: satya-500/create-branch@v1.0
-        env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: release/${{ steps.release.outputs.tag_name }}
           tag: ${{ steps.release.outputs.tag_name }}
