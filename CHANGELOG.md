@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.8.0...v1.9.0) (2024-08-05)
+
+
+### Features
+
+* last try ([9c28679](https://github.com/alice-sevin/release-please-test-test/commit/9c28679f44cd1f39fc68b8ac6570bfb00d209e96))
+
 ## [1.8.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.7.1...v1.8.0) (2024-08-05)
 
 
