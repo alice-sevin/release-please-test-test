@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/alice-sevin/release-please-test-test/compare/v1.2.1...v1.2.2) (2024-08-05)
+
+
+### Bug Fixes
+
+* resolve conflict ([10110c7](https://github.com/alice-sevin/release-please-test-test/commit/10110c72ad155a4b5b5cea7a28ca6536c2c6d49f))
+
 ## [1.2.1](https://github.com/alice-sevin/release-please-test-test/compare/v1.2.0...v1.2.1) (2024-08-05)
 
 
