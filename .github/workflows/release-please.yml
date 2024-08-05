@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: release-please
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - if: ${{ github.ref_name == 'main' }}
+        uses: google-github-actions/release-please-action@v4
+        with:
+          config-file: .github/workflows/release-please-config.json
+          token: ${{ secrets.RELEASE_PLEASE_GITHUB_TOKEN }}
+          target-branch: main
+      - if: ${{ startsWith(github.ref_name, 'release') }}
+        uses: google-github-actions/release-please-action@v4
+        with:
+          config-file: .github/workflows/release-please-config_release-branch.json
+          token: ${{ secrets.RELEASE_PLEASE_GITHUB_TOKEN }}
+          target-branch: ${{ github.ref_name }}
