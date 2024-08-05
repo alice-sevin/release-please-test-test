@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.2.0...v1.3.0) (2024-08-05)
+
+
+### Features
+
+* try with /releases ([d1c5bd3](https://github.com/alice-sevin/release-please-test-test/commit/d1c5bd358f00cb1fadfa0e77c0c18e010653faeb))
+
 ## [1.2.0](https://github.com/alice-sevin/release-please-test-test/compare/v1.1.0...v1.2.0) (2024-08-05)
 
 
