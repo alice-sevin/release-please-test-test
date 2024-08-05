@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - main
-      - 'release/**'
+      - 'releases/**'
 
 permissions:
   contents: write
@@ -19,7 +19,7 @@ jobs:
         with:
           config-file: .github/workflows/config-main.json
           target-branch: main
-      - if: ${{ startsWith(github.ref_name, 'release') }}
+      - if: ${{ startsWith(github.ref_name, 'releases') }}
         uses: google-github-actions/release-please-action@v4
         with:
           config-file: .github/workflows/config-release-branch.json
