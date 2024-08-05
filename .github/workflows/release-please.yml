@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: release-please
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create-release
+        if: ${{ github.ref_name == 'master' }}
+        id: release
+        uses: google-github-actions/release-please-action@v4
+        with:
+          release-type: node
+          include-component-in-tag: false
+      - name: release-branch
+        if: ${{ startsWith(github.ref_name, 'release/') }}
+        uses: google-github-actions/release-please-action@v4
+        with:
+          release-type: node
+          include-component-in-tag: false
+          versioning: always-bump-patch
+          target-branch: ${{ github.ref_name }}
+      - name: create major release branch
+        ## Create release branch only for new minor (vx.x.0)
+        if: ${{ steps.release.outputs.release_created && steps.release.outputs.patch == 0 }}
+        uses: peterjgrainger/action-create-branch@v2.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          ## Create release branch automatically "vx.x"
+          branch: "release/v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}"
+          sha: '${{ github.sha }}'
