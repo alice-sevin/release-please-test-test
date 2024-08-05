@@ -7,20 +7,21 @@ permissions:
   contents: write
   pull-requests: write
 
-name: release-please
+name: create-release
 
 jobs:
-  release-please:
+  create-release:
     runs-on: ubuntu-latest
     steps:
-        id: release
+      - name: release-please
+        id: release_please
         uses: google-github-actions/release-please-action@v4
         with:
           release-type: node
           include-component-in-tag: false
       - name: create major release branch
-        if: ${{ steps.release.outputs.release_created && steps.release.outputs.patch == 0 }}
+        if: ${{ steps.release_please.outputs.release_created && steps.release_please.outputs.patch == 0 }}
         uses: peterjgrainger/action-create-branch@v2.2.0
         with:
-          branch: "release/v${{ steps.release.outputs.major }}.0"
+          branch: "release/v${{ steps.release_please.outputs.major }}.0"
           sha: '${{ github.sha }}'
