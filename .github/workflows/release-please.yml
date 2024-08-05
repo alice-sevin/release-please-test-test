@@ -29,7 +29,7 @@ jobs:
         if: ${{ steps.main_release.outputs.releases_created && steps.main_release.outputs.minor == 0 }}
         run: |
           # Retrieve the branch name from the previous step's output
-          branch_name=release/${{ steps.main_release.outputs.tag_name }}
-          tag_name=${{ steps.main_release.outputs.tag_name }}
+          branch_name="release/${{ steps.main_release.outputs.tag_name }}"
+          tag_name="${{ steps.main_release.outputs.tag_name }}"
           git checkout -b $branch_name $tag_name
           git push --set-upstream origin $branch_name
