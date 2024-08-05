@@ -25,5 +25,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: "release/v${{ steps.release_please.outputs.major }}.0"
+          branch: "release/v${{ steps.release_please.outputs.major }}.${{ steps.release_please.outputs.minor }}.0"
           sha: '${{ github.sha }}'
