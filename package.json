@@ -1,16 +1,14 @@
 {
-    "name": "release-please-test",
-    "version": "0.0.0",
-    "main": "index.js",
-    "license": "proprietary",
-    "engines": {
-      "node": ">=18.19.1",
-      "pnpm": ">=8.15.4"
-    },
-    "scripts": {},
-    "dependencies": {
-    },
-    "devDependencies": {
-    }
-  }
+  "name": "release-please-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "proprietary",
+  "engines": {
+    "node": ">=18.19.1",
+    "pnpm": ">=8.15.4"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
   
