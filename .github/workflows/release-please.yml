@@ -15,20 +15,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: ${{ github.ref_name == 'main' }}
-        id: release
+        id: main_release
         uses: google-github-actions/release-please-action@v4
         with:
           config-file: .github/workflows/config-main.json
           target-branch: main
       - if: ${{ startsWith(github.ref_name, 'release') }}
-        id: release
         uses: google-github-actions/release-please-action@v4
         with:
           config-file: .github/workflows/config-release-branch.json
           target-branch: ${{ github.ref_name }}
       - name: creating major release branch
-        if: ${{ steps.release.outputs.releases_created && github.ref_name == 'main' && steps.release.outputs.minor == 0 }}
+        if: ${{ steps.main_release.outputs.releases_created && steps.main_release.outputs.minor == 0 }}
         uses: satya-500/create-branch@v1.0
         with:
-          branch: release/${{ steps.release.outputs.tag_name }}
-          tag: ${{ steps.release.outputs.tag_name }}
+          branch: release/${{ steps.main_release.outputs.tag_name }}
+          tag: ${{ steps.main_release.outputs.tag_name }}
